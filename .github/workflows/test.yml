@@ -1,0 +1,23 @@
+name: garm-windows-e2e-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows
+    steps:
+      - name: Show runner environment
+        shell: pwsh
+        run: |
+          Write-Output "RUNNER_NAME=$env:RUNNER_NAME"
+          Write-Output "RUNNER_OS=$env:RUNNER_OS"
+          Write-Output "COMPUTERNAME=$env:COMPUTERNAME"
+          Write-Output "RUNNER_LABELS=$env:RUNNER_LABELS"
+
+      - name: Simulated workload (90s)
+        shell: pwsh
+        run: |
+          Write-Output "workload-start $(Get-Date -Format o)"
+          Start-Sleep -Seconds 90
+          Write-Output "workload-end $(Get-Date -Format o)"

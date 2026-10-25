@@ -8,7 +8,7 @@ jobs:
     runs-on: windows
     steps:
       - name: Show runner environment
-        shell: pwsh
+        shell: powershell
         run: |
           Write-Output "RUNNER_NAME=$env:RUNNER_NAME"
           Write-Output "RUNNER_OS=$env:RUNNER_OS"
@@ -16,7 +16,7 @@ jobs:
           Write-Output "RUNNER_LABELS=$env:RUNNER_LABELS"
 
       - name: Simulated workload (90s)
-        shell: pwsh
+        shell: powershell
         run: |
           Write-Output "workload-start $(Get-Date -Format o)"
           Start-Sleep -Seconds 90
